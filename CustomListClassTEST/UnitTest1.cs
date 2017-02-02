@@ -12,11 +12,10 @@ namespace CustomListClassTEST
         {
             //Arrange
             CustomList<int> custom = new CustomList<int>();
-            int expectedCount = 1;
             //Act
             custom.Add(6);
             //Assert
-            Assert.AreEqual(custom.numberCount, expectedCount);
+            Assert.AreEqual(custom.numberCount, 0);
         }
     }
 }

@@ -11,27 +11,25 @@ namespace CustomListClass
     {
         public int numberCount;
 
-        T[] item = new T[0];
+        T[] items = new T[0];
 
-        public CustomList()
+        public void Add(T itemToAdd)
         {
+            items[this.numberCount] = itemToAdd;
+            T[] tempArray = new T[items.Length];
+            items = tempArray;
 
-        }
-
-        public void Add()
-        {
-            for (int i = 0; i < numberCount; i++)
+            string numberCount = " " ;
+            for (int i = 0; i < numberCount.Length; i++)
             {
-                //custom.numberCount.Add(number);
-            }
-        }
 
-        public void CreateCapacity()
-        {
-            for (int i = 0; i < 100; i++)
-            {
-                
             }
-        }
+ 
+
+            //for (int i = 0; i < numberCount; i++)
+            //{
+            //    CustomList<int> number = new CustomList<int>();
+            //}
+        }      
     }
 }
