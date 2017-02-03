@@ -15,30 +15,20 @@ namespace CustomListClassTEST
             //Act
             custom.CustomAdd(3);
             //Assert
-            Assert.AreEqual(custom.numberCount, 0);
+            Assert.AreEqual(custom.arrayCount, 1);
         }
-
-        //[TestMethod]
-
-        //public void TestCustomRemove()
-        //{
-        //    //Arrange
-        //    CustomList<int> custom = new CustomList<int>();
-        //    //Act
-        //    custom.CustomRemove(1);
-        //    //Assert
-        //    Assert.AreEqual(custom.numberCount, 0);
-        //}
 
         [TestMethod]
 
-        public void TestCheckForSpace()
+        public void TestCustomRemove()
         {
             //Arrange
-
+            CustomList<int> custom = new CustomList<int>();
             //Act
-
+            custom.CustomRemove(1);
             //Assert
+            Assert.AreEqual(custom.arrayCount, null);
         }
+
     }
 }

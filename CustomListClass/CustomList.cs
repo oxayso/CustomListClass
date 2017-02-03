@@ -6,50 +6,55 @@ using System.Threading.Tasks;
 
 namespace CustomListClass
 {
-    public class CustomList<T>   
+    public class CustomList<T>
     {
-        public int numberCount;
-        T[] items;
-
+        public int arrayCount;
+        public T[] arrayItems;
 
         public CustomList()
         {
-            items = new T[0];
-            numberCount = 0;
+            arrayItems = new T[0];
+            arrayCount = 0;
         }
         public void CustomAdd(T itemToAdd)
         {
-
-            //items[numberCount] = itemToAdd;
-            T[] increaseArray = new T[items.Length + 5];
-            for (int i = 0; i < items.Length; i++)
+            if(arrayCount >= arrayItems.Length)
             {
-                increaseArray[i] = items[i];
+                T[] increasedTempArray = new T[arrayItems.Length + 4];
+                for (int i = 0; i < arrayItems.Length; i++)
+                {
+                    increasedTempArray[i] = arrayItems[i];
+                }
+                arrayItems = increasedTempArray;
             }
+            arrayItems[arrayCount] = itemToAdd;
+            arrayCount++;
+        }
 
-            increaseArray[items.Length] = itemToAdd;
-            items = increaseArray;
-                                   
-        }    
-        
         public void CustomRemove(T itemToRemove)
         {
-            T[] removeTempArray = new T[items.Length - 3];
-            //for (int i = 0; i < items.Length; i++);
+            if(arrayCount <= arrayItems.Length)
             {
-                
-            }
-        }  
-
-        public void CheckForSpaces(T items)
-        {
-
+                T[] removeTempArray = new T[arrayItems.Length - 1];
+                for (int i = 0; i < arrayItems.Length; i--)
+                {
+                    removeTempArray[i] = arrayItems[i];
+                }
+                arrayItems = removeTempArray;
+                }
+                arrayItems[arrayCount] = itemToRemove;
+            arrayCount--;
         }
+        
+
     }
 }
 
 
-//for (int i = 0; i < numberCount; i++)
+
 //{
-//    CustomList<int> number = new CustomList<int>();
+//increasedTempArray[i] = arrayItems[i];
 //}
+//increasedTempArray[arrayItems.Length] = itemToAdd;
+//arrayItems = increasedTempArray;
+//arrayCount++; 
