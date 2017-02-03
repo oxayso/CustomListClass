@@ -11,9 +11,9 @@ namespace CustomListClass
     {
         static void Main(string[] args)
         {
-            CustomList<string> word = new CustomList<string>();
-            CustomList<int> number = new CustomList<int>();
-
+            CustomList<string> itemWord = new CustomList<string>();
+            CustomList<int> itemNumber = new CustomList<int>();
+            Console.ReadKey();
         }
     }
 }

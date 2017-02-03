@@ -7,29 +7,49 @@ using System.Threading.Tasks;
 namespace CustomListClass
 {
     public class CustomList<T>   
-    
     {
         public int numberCount;
+        T[] items;
 
-        T[] items = new T[0];
 
-        public void Add(T itemToAdd)
+        public CustomList()
         {
-            items[this.numberCount] = itemToAdd;
-            T[] tempArray = new T[items.Length];
-            items = tempArray;
+            items = new T[0];
+            numberCount = 0;
+        }
+        public void CustomAdd(T itemToAdd)
+        {
 
-            string numberCount = " " ;
-            for (int i = 0; i < numberCount.Length; i++)
+            //items[numberCount] = itemToAdd;
+            T[] increaseArray = new T[items.Length + 5];
+            for (int i = 0; i < items.Length; i++)
             {
-
+                increaseArray[i] = items[i];
             }
- 
 
-            //for (int i = 0; i < numberCount; i++)
-            //{
-            //    CustomList<int> number = new CustomList<int>();
-            //}
-        }      
+            increaseArray[items.Length] = itemToAdd;
+            items = increaseArray;
+                                   
+        }    
+        
+        public void CustomRemove(T itemToRemove)
+        {
+            T[] removeTempArray = new T[items.Length - 3];
+            //for (int i = 0; i < items.Length; i++);
+            {
+                
+            }
+        }  
+
+        public void CheckForSpaces(T items)
+        {
+
+        }
     }
 }
+
+
+//for (int i = 0; i < numberCount; i++)
+//{
+//    CustomList<int> number = new CustomList<int>();
+//}

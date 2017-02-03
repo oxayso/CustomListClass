@@ -8,14 +8,37 @@ namespace CustomListClassTEST
     public class UnitTest1
     {
         [TestMethod]
-        public void TestAdd()
+        public void TestCustomAdd()
         {
             //Arrange
             CustomList<int> custom = new CustomList<int>();
             //Act
-            custom.Add(6);
+            custom.CustomAdd(3);
             //Assert
             Assert.AreEqual(custom.numberCount, 0);
+        }
+
+        //[TestMethod]
+
+        //public void TestCustomRemove()
+        //{
+        //    //Arrange
+        //    CustomList<int> custom = new CustomList<int>();
+        //    //Act
+        //    custom.CustomRemove(1);
+        //    //Assert
+        //    Assert.AreEqual(custom.numberCount, 0);
+        //}
+
+        [TestMethod]
+
+        public void TestCheckForSpace()
+        {
+            //Arrange
+
+            //Act
+
+            //Assert
         }
     }
 }
