@@ -11,7 +11,8 @@ namespace CustomListClass
     {
         static void Main(string[] args)
         {
-            CustomList<int> number = new CustomList<int>();
+            
+        CustomList<int> number = new CustomList<int>();
             number.CustomAdd(0);
             number.CustomAdd(1);
             number.CustomAdd(2);
@@ -20,7 +21,21 @@ namespace CustomListClass
             {
                 Console.WriteLine($"Number In CustomArray: {num}");
             }
-            Console.ReadKey();
+
+             //public static void OverrideToStringConversion()
+        {
+            int myNumber = 1;
+            Console.WriteLine(myNumber.ToString());
+
+            CustomList<int> myValue = new CustomList<int>();
+            myValue.value1 = 1;
+            myValue.value2 = 2;
+
+            Console.WriteLine(myValue.ToString());
         }
+
+        Console.ReadKey();
+
+         }
     }
 }

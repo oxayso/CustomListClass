@@ -8,7 +8,8 @@ namespace CustomListClassTEST
     public class UnitTest1
         
     {
-        public int number; 
+        public int number;
+        public int myValue;
 
         [TestMethod]
         public void TestCustomAdd()
@@ -48,5 +49,19 @@ namespace CustomListClassTEST
             //Assert
             Assert.AreEqual(number.arrayCount, 1);
         }
+
+        [TestMethod]
+
+        public void TestOverrideToStringConversion()
+        {
+            //Arrange
+            CustomList<int> myValue = new CustomList<int>();
+            myValue.value1 = "One";
+            //Act
+            myValue.ToString();
+            //Assert
+            Assert.AreEqual(myValue.value1, "One");
+        }
+       
     }
 }

@@ -11,6 +11,12 @@ namespace CustomListClass
         public int arrayCount;
         public T[] myItems;
         //public bool itemToRemove;
+        public object value1 { get; set; }
+        public object value2 { get; set; }
+        public override string ToString()
+        {
+            return value1 + "," + value2;
+        }
 
         public CustomList()
         {
@@ -50,14 +56,13 @@ namespace CustomListClass
             arrayCount--;
         }
 
-       public IEnumerator GetEnumerator()
+       public IEnumerator GetEnumerator() //myiteration
         {
             for (int i = 0; i < myItems.Length; i++)
             {
                 yield return myItems[i];
             }
         }
-
     }
 }
 
