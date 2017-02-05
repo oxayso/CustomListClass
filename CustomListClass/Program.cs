@@ -7,24 +7,20 @@ using System.Threading.Tasks;
 namespace CustomListClass
 
 {
-    class Program
+    class Program 
     {
         static void Main(string[] args)
         {
             CustomList<int> number = new CustomList<int>();
+            number.CustomAdd(0);
             number.CustomAdd(1);
             number.CustomAdd(2);
             number.CustomAdd(3);
-            number.CustomAdd(4);
-            foreach (int num in number.arrayItems)
+            foreach (int num in number)
             {
-                Console.WriteLine($"Number: {num}");
+                Console.WriteLine($"Number In CustomArray: {num}");
             }
-                       
             Console.ReadKey();
         }
     }
 }
-
-
-//CustomList<string> itemWord = new CustomList<string>();

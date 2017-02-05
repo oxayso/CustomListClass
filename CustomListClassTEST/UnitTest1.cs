@@ -6,7 +6,10 @@ namespace CustomListClassTEST
 {
     [TestClass]
     public class UnitTest1
+        
     {
+        public int number; 
+
         [TestMethod]
         public void TestCustomAdd()
         {
@@ -24,11 +27,26 @@ namespace CustomListClassTEST
         {
             //Arrange
             CustomList<int> custom = new CustomList<int>();
+            custom.CustomAdd(3);
             //Act
-            custom.CustomRemove(1);
+            custom.CustomRemove(3);
             //Assert
-            Assert.AreEqual(custom.arrayCount, null);
+            Assert.AreEqual(custom.arrayCount, 0);
         }
 
+        [TestMethod]
+        public void TestMyIteration()
+        {
+            //Arrange
+            CustomList<int> number = new CustomList<int>();
+            number.CustomAdd(2);
+            //Act
+            foreach (int num in number)
+            {
+                Console.WriteLine($"Number in CustomArray:{num}");
+            }
+            //Assert
+            Assert.AreEqual(number.arrayCount, 1);
+        }
     }
 }

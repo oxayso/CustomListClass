@@ -1,55 +1,65 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace CustomListClass
 {
-    public class CustomList<T>
+    public class CustomList<T> : IEnumerable
     {
         public int arrayCount;
-        public T[] arrayItems;
+        public T[] myItems;
+        //public bool itemToRemove;
 
         public CustomList()
         {
-            arrayItems = new T[0];
+            myItems = new T[0];
             arrayCount = 0;
+            //itemToRemove = true;
         }
+
         public void CustomAdd(T itemToAdd)
         {
-            if(arrayCount >= arrayItems.Length)
+            if(arrayCount >= myItems.Length)
             {
-                T[] increasedTempArray = new T[arrayItems.Length + 4];
-                for (int i = 0; i < arrayItems.Length; i++)
+                T[] increasedTempArray = new T[myItems.Length + 4];
+                for (int i = 0; i < myItems.Length; i++)
                 {
-                    increasedTempArray[i] = arrayItems[i];
+                    increasedTempArray[i] = myItems[i];
                 }
-                arrayItems = increasedTempArray;
+                myItems = increasedTempArray;
             }
-            arrayItems[arrayCount] = itemToAdd;
+            myItems[arrayCount] = itemToAdd;
             arrayCount++;
         }
 
+
         public void CustomRemove(T itemToRemove)
         {
-            if(arrayCount <= arrayItems.Length)
+            if(myItems.Length < arrayCount)
             {
-                T[] removeTempArray = new T[arrayItems.Length - 1];
-                for (int i = 0; i < arrayItems.Length; i--)
+                T[] removeTempArray = new T[myItems.Length - 4];
+                for (int i = 0; i < myItems.Length; i--)
                 {
-                    removeTempArray[i] = arrayItems[i];
+                    removeTempArray[i] = myItems[i];
                 }
-                arrayItems = removeTempArray;
+                myItems = removeTempArray;
                 }
-                arrayItems[arrayCount] = itemToRemove;
+                myItems[arrayCount] = itemToRemove;
             arrayCount--;
         }
-        
+
+       public IEnumerator GetEnumerator()
+        {
+            for (int i = 0; i < myItems.Length; i++)
+            {
+                yield return myItems[i];
+            }
+        }
 
     }
 }
-
 
 
 //{
