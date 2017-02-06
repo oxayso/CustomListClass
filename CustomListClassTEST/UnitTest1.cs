@@ -62,6 +62,18 @@ namespace CustomListClassTEST
             //Assert
             Assert.AreEqual(myValue.value1, "One");
         }
+
+        [TestMethod]
+
+        public void TestOperatorAddOverload()
+        {
+            //Arrange
+            
+            //Act
+
+            //Assert
+       
+        }
        
     }
 }
