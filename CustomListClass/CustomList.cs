@@ -10,9 +10,7 @@ namespace CustomListClass
     {
         public int arrayCount;
         public T[] myItems;
-        //public object num1 { get; set; }
-        //public object num2 { get; set; }
-        //public object num3 { get; set; }
+
         public override string ToString()
         {
             System.Text.StringBuilder builder = new System.Text.StringBuilder();
@@ -76,23 +74,20 @@ namespace CustomListClass
             }
         }
 
-        class OverloadAddOperator
-        {
-            public int NumOne = 0;
-            public string StringOne = "";
+        //public class OverloadAddOperator
+        //{
+        //    class OverloadAdd
+        //    {
+        //        CustomList<int> result;
+        //        CustomList<int> listOne = new CustomList<int>() { 1, 2, 3 };
+        //        CustomList<int> listTwo = new CustomList<int>() { 4, 5, 6 };
 
-            //class OverloadAddOperator1 : CustomList<int>
-            //{
-            //    public static OverloadAddOperator operator +(OverloadAddOperator obj1, OverloadAddOperator obj2)
-            //    {
-            //        OverloadAddOperator result = new OverloadAddOperator();
-            //        result.NumOne = result.NumOne + obj2.NumOne;
-            //        result.StringOne = obj1.StringOne + obj2.StringOne;
-            //        return result;
-            //    }
-
+        //        public static OverloadAdd operator +(OverloadAdd listOne, OverloadAdd listTwo)
+        //        {
+        //            OverloadAdd result;
+        //            result = listOne + listTwo;
+        //            return result;
+        //        }
             //}
-        }
-
-    }
-}
+     }           
+ }

@@ -11,13 +11,15 @@ namespace CustomListClass
     {
         static void Main(string[] args)
         {
-            //CustomList<int> testList = new CustomList<int>();
-            //testList.Add(1);
-
-            //CustomList<int> result;
-            //CustomList<int> listOne = new CustomList<int>() { 1, 2, 3 };
-            //CustomList<int> listTwo = new CustomList<int>() { 4, 5, 6 };
-            //result = listOne + listTwo;
+            CustomList<int> testList = new CustomList<int>();
+            testList.Add(1);
+            testList.Add(2);
+            testList.Add(1);
+            testList.Add(2);
+            foreach (int num in testList)
+            {
+                Console.WriteLine($"{num}");
+            }
 
             Console.ReadKey();
         }
