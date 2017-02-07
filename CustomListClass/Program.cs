@@ -11,29 +11,13 @@ namespace CustomListClass
     {
         static void Main(string[] args)
         {
-            CustomList<int> number = new CustomList<int>();
-            number.CustomAdd(0);
-            number.CustomAdd(1);
-            number.CustomAdd(2);
-            number.CustomAdd(3);
-            foreach (int num in number)
-            {
-                Console.WriteLine($"Number In CustomArray: {num}\n");
-            }
+            CustomList<int> testList = new CustomList<int>();
+            testList.Add(1);
 
-            //public static void OverrideToStringConversion()
-            {
-                int myNumber = 1;
-                Console.WriteLine(myNumber.ToString());
-
-                CustomList<int> myValue = new CustomList<int>();
-                myValue.value1 = 1;
-                myValue.value2 = 2;
-
-                Console.WriteLine(myValue.ToString());
-            }
-
-            Console.ReadKey();
+            //CustomList<int> result;
+            //CustomList<int> listOne = new CustomList<int>() { 1, 2, 3 };
+            //CustomList<int> listTwo = new CustomList<int>() { 4, 5, 6 };
+            //result = listOne + listTwo;
         }
     }
 }

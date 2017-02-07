@@ -17,7 +17,7 @@ namespace CustomListClassTEST
             //Arrange
             CustomList<int> custom = new CustomList<int>();
             //Act
-            custom.CustomAdd(3);
+            custom.Add(3);
             //Assert
             Assert.AreEqual(custom.arrayCount, 1);
         }
@@ -28,7 +28,7 @@ namespace CustomListClassTEST
         {
             //Arrange
             CustomList<int> custom = new CustomList<int>();
-            custom.CustomAdd(3);
+            custom.Add(3);
             //Act
             custom.CustomRemove(3);
             //Assert
@@ -40,7 +40,7 @@ namespace CustomListClassTEST
         {
             //Arrange
             CustomList<int> number = new CustomList<int>();
-            number.CustomAdd(2);
+            number.Add(2);
             //Act
             foreach (int num in number)
             {
@@ -50,30 +50,33 @@ namespace CustomListClassTEST
             Assert.AreEqual(number.arrayCount, 1);
         }
 
-        [TestMethod]
+        ///[TestMethod]
 
-        public void TestOverrideToStringConversion()
-        {
-            //Arrange
-            CustomList<int> myValue = new CustomList<int>();
-            myValue.value1 = "One";
-            //Act
-            myValue.ToString();
-            //Assert
-            Assert.AreEqual(myValue.value1, "One");
-        }
+        //public void TestOverrideToStringConversion()
+        //{
+        //    //Arrange
+        //    CustomList<int> number = new CustomList<int>();
+        //    number.Add(1);
+        //    number.Add(2);
+        //    number.Add(3);
+        //    //string actualResult;
+        //    //Act
 
-        [TestMethod]
+        //    //Assert
+        //    Assert.AreEqual(number.ToString(), actualResult);
+        //}
 
-        public void TestOperatorAddOverload()
-        {
-            //Arrange
-            
-            //Act
+        //[TestMethod]
 
-            //Assert
+        //public void TestOperatorAddOverload()
+        //{
+        //    //Arrange
+        //    CustomList<int> addOperator = new CustomList<int>();
+        //    //Act
+
+        //    //Assert
        
-        }
+        //}
        
     }
 }
