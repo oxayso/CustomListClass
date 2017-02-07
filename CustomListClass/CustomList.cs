@@ -10,18 +10,28 @@ namespace CustomListClass
     {
         public int arrayCount;
         public T[] myItems;
-        public object num1 { get; set; }
-        public object num2 { get; set; }
-        public object num3 { get; set; }
+        //public object num1 { get; set; }
+        //public object num2 { get; set; }
+        //public object num3 { get; set; }
         public override string ToString()
         {
-            //create the logic to stringify any object
-            // StringBuilder
-            num1 = "1";
-            num2 = "2";
-            num3 = "3";
-            return num1 + ", " + num2 + ", " + num3;           
+            System.Text.StringBuilder builder = new System.Text.StringBuilder();
+            {
+                builder.Append("Testing ");
+                builder.Append("One ");
+                builder.Append("Two ");
+                builder.Append("Three \n\n");
+
+                for (int i = 0; i < 10; i++)
+                {
+                    builder.Append("10 times ");
+                }
+
+                string actualResult = builder.ToString();
+                return actualResult;
+            }
         }
+
         public CustomList()
         {
             myItems = new T[0];
@@ -43,7 +53,7 @@ namespace CustomListClass
             arrayCount++;
         }
 
-        public void CustomRemove(T itemToRemove)
+        public void Remove(T itemToRemove)
         {
             if(myItems.Length < arrayCount)
             {
@@ -64,27 +74,25 @@ namespace CustomListClass
             {
                 yield return myItems[i];
             }
-        }    
+        }
 
+        class OverloadAddOperator
+        {
+            public int NumOne = 0;
+            public string StringOne = "";
 
+            //class OverloadAddOperator1 : CustomList<int>
+            //{
+            //    public static OverloadAddOperator operator +(OverloadAddOperator obj1, OverloadAddOperator obj2)
+            //    {
+            //        OverloadAddOperator result = new OverloadAddOperator();
+            //        result.NumOne = result.NumOne + obj2.NumOne;
+            //        result.StringOne = obj1.StringOne + obj2.StringOne;
+            //        return result;
+            //    }
 
-       //class OverloadAddOperator
-       // {
-       //     public int Num1 = 0;
-       //     public string Str1 = "";
+            //}
+        }
 
-       //     class OverloadAddOperator1 : CustomList<int>
-       //     {
-       //         public static OverloadAddOperator operator +(OverloadAddOperator obj1, OverloadAddOperator obj2)
-       //         {
-       //             OverloadAddOperator obj3 = new OverloadAddOperator();
-       //             obj3.Num1 = obj3.Num1 + obj2.Num1;
-       //             obj3.Str1 = obj1.Str1 + obj2.Str1;
-       //             return obj3;
-       //         }
-
-       //     }
-        //}
-      
-    } 
+    }
 }

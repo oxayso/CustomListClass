@@ -12,7 +12,7 @@ namespace CustomListClassTEST
         public int myValue;
 
         [TestMethod]
-        public void TestCustomAdd()
+        public void TestAdd()
         {
             //Arrange
             CustomList<int> custom = new CustomList<int>();
@@ -24,19 +24,19 @@ namespace CustomListClassTEST
 
         [TestMethod]
 
-        public void TestCustomRemove()
+        public void TestRemove()
         {
             //Arrange
             CustomList<int> custom = new CustomList<int>();
             custom.Add(3);
             //Act
-            custom.CustomRemove(3);
+            custom.Remove(3);
             //Assert
             Assert.AreEqual(custom.arrayCount, 0);
         }
 
         [TestMethod]
-        public void TestMyIteration()
+        public void TestGetEnumerator()
         {
             //Arrange
             CustomList<int> number = new CustomList<int>();
@@ -50,21 +50,20 @@ namespace CustomListClassTEST
             Assert.AreEqual(number.arrayCount, 1);
         }
 
-        ///[TestMethod]
+        [TestMethod]
 
-        //public void TestOverrideToStringConversion()
-        //{
-        //    //Arrange
-        //    CustomList<int> number = new CustomList<int>();
-        //    number.Add(1);
-        //    number.Add(2);
-        //    number.Add(3);
-        //    //string actualResult;
-        //    //Act
-
-        //    //Assert
-        //    Assert.AreEqual(number.ToString(), actualResult);
-        //}
+        public void TestToString()
+        {
+            //Arrange
+            System.Text.StringBuilder builder = new System.Text.StringBuilder();
+            builder.Append("Testing ");
+            builder.Append("One ");
+            string actualResult = builder.ToString();
+            //Act
+            
+            //Assert
+            Assert.AreEqual(builder.ToString(), actualResult);
+        }
 
         //[TestMethod]
 
@@ -75,8 +74,8 @@ namespace CustomListClassTEST
         //    //Act
 
         //    //Assert
-       
+
         //}
-       
+
     }
 }
