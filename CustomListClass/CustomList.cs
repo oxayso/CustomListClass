@@ -8,9 +8,13 @@ namespace CustomListClass
 {
     public class CustomList<T> : IEnumerable
     {
-        public int arrayCount;
+        public int count;
         public T[] myItems;
-
+        public CustomList()
+        {
+            myItems = new T[0];
+            count = 0;
+        }
         public override string ToString()
         {
             System.Text.StringBuilder builder = new System.Text.StringBuilder();
@@ -30,45 +34,40 @@ namespace CustomListClass
             }
         }
 
-        public CustomList()
-        {
-            myItems = new T[0];
-            arrayCount = 0;
-        }
-
         public void Add(T itemToAdd)
         {
-            if(arrayCount >= myItems.Length)
+            if(count >= myItems.Length)
             {
-                T[] increasedTempArray = new T[myItems.Length + 4];
+                T[] increasedTempArray = new T[myItems.Length * 2 + 1];
                 for (int i = 0; i < myItems.Length; i++)
                 {
                     increasedTempArray[i] = myItems[i];
                 }
                 myItems = increasedTempArray;
             }
-            myItems[arrayCount] = itemToAdd;
-            arrayCount++;
+            myItems[count] = itemToAdd;
+            count++;
         }
 
         public void Remove(T itemToRemove)
         {
-            if(myItems.Length < arrayCount)
+            bool itemFound = false;
+            for (int i = 0; i < count; i++)
             {
-                T[] removeTempArray = new T[myItems.Length - 4];
-                for (int i = 0; i < myItems.Length; i--)
+                if (myItems[i].Equals (itemToRemove))
                 {
-                    removeTempArray[i] = myItems[i];
+                    itemFound = true;
                 }
-                myItems = removeTempArray;
+                if (itemFound)
+                {
+                    myItems[i] = myItems[i + 1];
                 }
-                myItems[arrayCount] = itemToRemove;
-            arrayCount--;
+            }     
         }
 
        public IEnumerator GetEnumerator() //myiteration
         {
-            for (int i = 0; i < myItems.Length; i++)
+            for (int i = 0; i < count; i++)
             {
                 yield return myItems[i];
             }

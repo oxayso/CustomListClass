@@ -5,7 +5,7 @@ using CustomListClass;
 namespace CustomListClassTEST
 {
     [TestClass]
-    public class UnitTest1
+    public class CustomListTest
         
     {
         public int number;
@@ -19,7 +19,7 @@ namespace CustomListClassTEST
             //Act
             custom.Add(3);
             //Assert
-            Assert.AreEqual(custom.arrayCount, 1);
+            Assert.AreEqual(custom.count, 1);
         }
 
         [TestMethod]
@@ -28,11 +28,10 @@ namespace CustomListClassTEST
         {
             //Arrange
             CustomList<int> custom = new CustomList<int>();
-            custom.Add(3);
             //Act
-            custom.Remove(3);
+            custom.Remove(2);
             //Assert
-            Assert.AreEqual(custom.arrayCount, 0);
+            Assert.AreEqual(custom.count, 0);
         }
 
         [TestMethod]
@@ -47,7 +46,7 @@ namespace CustomListClassTEST
                 Console.WriteLine($"Number in CustomArray:{num}");
             }
             //Assert
-            Assert.AreEqual(number.arrayCount, 1);
+            Assert.AreEqual(number.count, 1);
         }
 
         [TestMethod]
@@ -55,14 +54,16 @@ namespace CustomListClassTEST
         public void TestToString()
         {
             //Arrange
-            System.Text.StringBuilder builder = new System.Text.StringBuilder();
-            builder.Append("Testing ");
-            builder.Append("One ");
-            string actualResult = builder.ToString();
+            CustomList<string> test = new CustomList<string>();
+            string itemOne = "testing";
+            string itemTwo = "one";
+            test.Add(itemOne);
+            test.Add(itemTwo);
+            string actualResult = test.ToString();
             //Act
             
             //Assert
-            Assert.AreEqual(builder.ToString(), actualResult);
+            Assert.AreEqual(test.ToString(), actualResult);
         }
 
         //[TestMethod]
