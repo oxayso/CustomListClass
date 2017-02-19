@@ -65,20 +65,5 @@ namespace CustomListClassTEST
             //Assert
             Assert.AreEqual(test.ToString(), actualResult);
         }
-
-        //[TestMethod]
-
-        //public void TestOverloadAdd()
-        //{
-        //    //Arrange
-        //    CustomList<int> listOne = new CustomList<int>() { 1, 2, 3 };
-        //    CustomList<int> listTwo = new CustomList<int>() { 4, 5, 6 };
-        //    //Act
-        //    CustomList<int> result;
-        //    result = listOne + listTwo;
-        //    //Assert
-        //    Assert.AreEqual(, result);
-        //}
-
     }
 }

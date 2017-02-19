@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CustomListClass
 {
-    public class CustomList<T> : IEnumerable
+    public class CustomList<T> : IEnumerable<T> where T : IComparable
     {
         public int count;
         public T[] myItems;
@@ -17,21 +17,12 @@ namespace CustomListClass
         }
         public override string ToString()
         {
-            System.Text.StringBuilder builder = new System.Text.StringBuilder();
+            string myString = null;
+            for (int i = 0; i < count; i++)
             {
-                builder.Append("Testing ");
-                builder.Append("One ");
-                builder.Append("Two ");
-                builder.Append("Three \n\n");
-
-                for (int i = 0; i < 10; i++)
-                {
-                    builder.Append("10 times ");
-                }
-
-                string actualResult = builder.ToString();
-                return actualResult;
+                myString += myItems[i] + " ";
             }
+            return myString;
         }
 
         public void Add(T itemToAdd)
@@ -49,7 +40,7 @@ namespace CustomListClass
             count++;
         }
 
-        public void Remove(T itemToRemove)
+        public bool Remove(T itemToRemove)
         {
             bool itemFound = false;
             for (int i = 0; i < count; i++)
@@ -62,31 +53,66 @@ namespace CustomListClass
                 {
                     myItems[i] = myItems[i + 1];
                 }
-            }     
+            }
+
+            if(itemFound) count--;
+            return itemFound;
         }
 
-       public IEnumerator GetEnumerator() //myiteration
+        public static CustomList<T> operator +(CustomList<T> myList, CustomList<T> myListTwo)
         {
-            for (int i = 0; i < count; i++)
+            CustomList<T> positiveList = new CustomList<T>();
+            foreach (T item in myList)
+            {
+                positiveList.Add(item);
+            }
+            foreach (T item in myListTwo)
+            {
+                positiveList.Add(item);
+            }
+            return positiveList;
+        }
+
+        public static CustomList<T> operator -(CustomList<T> negativeList, CustomList<T> myListTwo)
+        {
+            foreach (T item in myListTwo)
+            {
+                negativeList.Remove(item);
+            }
+            return negativeList;
+        }
+
+        public CustomList<T> Zipper(CustomList<T> listTwo)
+        {
+            CustomList<T> zipList = new CustomList<T>();
+            var listTwoItem = listTwo.GetEnumerator();
+
+            foreach (T itemListOne in this)
+            {
+                if (listTwoItem.MoveNext())
+                {
+                    zipList.Add(itemListOne);
+                    zipList.Add(listTwoItem.Current);
+                }
+                else
+                {
+                    break;
+                }
+            }
+            return zipList;
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            for (int i = 0; i < count; ++i)
             {
                 yield return myItems[i];
             }
         }
 
-        //public class OverloadAddOperator
-        //{
-        //    class OverloadAdd
-        //    {
-        //        CustomList<int> result;
-        //        CustomList<int> listOne = new CustomList<int>() { 1, 2, 3 };
-        //        CustomList<int> listTwo = new CustomList<int>() { 4, 5, 6 };
-
-        //        public static OverloadAdd operator +(OverloadAdd listOne, OverloadAdd listTwo)
-        //        {
-        //            OverloadAdd result;
-        //            result = listOne + listTwo;
-        //            return result;
-        //        }
-            //}
-     }           
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+    }           
  }
