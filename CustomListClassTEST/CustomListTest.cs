@@ -9,7 +9,7 @@ namespace CustomListClassTEST
         
     {
         public int number;
-        public int myValue;
+        public int value;
 
         [TestMethod]
         public void TestAdd()
@@ -54,16 +54,17 @@ namespace CustomListClassTEST
         public void TestToString()
         {
             //Arrange
-            CustomList<string> test = new CustomList<string>();
+            CustomList<string> stringTest = new CustomList<string>();
             string itemOne = "testing";
             string itemTwo = "one";
-            test.Add(itemOne);
-            test.Add(itemTwo);
-            string actualResult = test.ToString();
+            stringTest.Add(itemOne);
+            stringTest.Add(itemTwo);
+            string myString = stringTest.ToString();
             //Act
             
             //Assert
-            Assert.AreEqual(test.ToString(), actualResult);
+            Assert.AreEqual(stringTest.ToString(), myString);
         }
+
     }
 }

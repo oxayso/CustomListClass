@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CustomListClass
 {
-    public class CustomList<T> : IEnumerable<T> where T : IComparable
+    public class CustomList<T> : IEnumerable<T> 
     {
         public int count;
         public T[] myItems;
@@ -29,7 +29,7 @@ namespace CustomListClass
         {
             if(count >= myItems.Length)
             {
-                T[] increasedTempArray = new T[myItems.Length * 2 + 1];
+                T[] increasedTempArray = new T[myItems.Length * 2 + 1]; // increase by 1 and multiply by 2 to ensure capacity of array
                 for (int i = 0; i < myItems.Length; i++)
                 {
                     increasedTempArray[i] = myItems[i];
@@ -55,7 +55,7 @@ namespace CustomListClass
                 }
             }
 
-            if(itemFound) count--;
+            if(itemFound) count--; // decrement item(s) in array
             return itemFound;
         }
 
@@ -84,22 +84,22 @@ namespace CustomListClass
 
         public CustomList<T> Zipper(CustomList<T> listTwo)
         {
-            CustomList<T> zipList = new CustomList<T>();
-            var listTwoItem = listTwo.GetEnumerator();
+            CustomList<T> zipperList = new CustomList<T>();
+            var itemInList = listTwo.GetEnumerator(); // set to var b/c it is generic T
 
-            foreach (T itemListOne in this)
+            foreach (T itemListOne in this) // "in this" refers to contents of obj "itemListOne" 
             {
-                if (listTwoItem.MoveNext())
+                if (itemInList.MoveNext()) // "MoveNext" will check if condition is true then will continue to next item in list, if false = end of list
                 {
-                    zipList.Add(itemListOne);
-                    zipList.Add(listTwoItem.Current);
+                    zipperList.Add(itemListOne);
+                    zipperList.Add(itemInList.Current); // "Current" will return the same item in list until .MoveNext has met a a condition T/F 
                 }
                 else
                 {
                     break;
                 }
             }
-            return zipList;
+            return zipperList;
         }
 
         public IEnumerator<T> GetEnumerator()

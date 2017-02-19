@@ -24,13 +24,18 @@ namespace CustomListClass
             testListTwo.Add(7);
             testListTwo.Add(4);
 
-            //CustomList<int> positiveList = testList + testListTwo;
-            //Console.WriteLine($"\n{positiveList}");
+            // ** commented out code in order to test different methods **
 
-            //CustomList<int> negativeList = testList - testListTwo;
-            //Console.WriteLine(negativeList);
+            CustomList<int> stringList = testList + testListTwo; // test for override ToString
+            Console.WriteLine(stringList);
 
-            Console.WriteLine(testList.Zipper(testListTwo));
+            CustomList<int> positiveList = testList + testListTwo; // test for overloading add operator
+            Console.WriteLine($"\n{positiveList}");
+
+            CustomList<int> negativeList = testList - testListTwo; // test for overloading minus operator
+            Console.WriteLine(negativeList);
+
+            Console.WriteLine(testList.Zipper(testListTwo)); //test for zipper
 
             Console.ReadKey();
         }
